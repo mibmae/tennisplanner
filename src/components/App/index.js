@@ -1,5 +1,10 @@
 // == Import npm
 import React from 'react';
+import {
+  Switch,
+  Route,
+  BrowserRouter as Router,
+} from 'react-router-dom';
 import Rencontres from '../Rencontres';
 
 // == Import
@@ -9,7 +14,9 @@ import './styles.css';
 // == Composant
 const App = () => (
   <div className="app">
-   <Rencontres />
+    <Router>
+      <Rencontres />
+    </Router>
   </div>
 );
 

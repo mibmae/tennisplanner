@@ -1,13 +1,22 @@
 import React, { useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import './styles.scss';
+// import CryptoJS from 'crypto-js';
+const CryptoJS = require('crypto-js');
+
+const data = '+622997083';
+const numero = CryptoJS.AES.encrypt(JSON.stringify(data), 'lasuperkey').toString();
+console.log(numero);
+const bytes = CryptoJS.AES.decrypt(numero, 'lasuperkey');
+const decryptedData = JSON.parse(bytes.toString(CryptoJS.enc.Utf8));
 
 function Rencontres() {
-    useEffect(() => {
-        window.scrollTo({
-          top: 0,
-          behavior: 'smooth',
-        });
-      });
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth',
+    });
+  });
   return (
     <>
       <section className="projects" id="project">
@@ -23,7 +32,7 @@ function Rencontres() {
             </div>
 
             <div className="details">
-                <div className="date">26/09/2021</div>
+              <div className="date">26/09/2021</div>
               <h3> Cendras - As Salindres</h3>
               <p className="detail_p">Thierry - Fabrice - Sébastien</p>
               {/* <div className="prj-link">
@@ -40,10 +49,9 @@ function Rencontres() {
             </div>
 
             <div className="details">
-                <div className="date">03/10/2021</div>
+              <div className="date">03/10/2021</div>
               <h3> As Salindres - Les Mages</h3>
               <p className="detail_p">Dispo : Thierry - Fabrice - Sébastien</p>
-              
 
             </div>
           </div>
@@ -54,10 +62,9 @@ function Rencontres() {
             </div>
 
             <div className="details">
-                <div className="date">10/10/2021</div>
+              <div className="date">10/10/2021</div>
               <h3> Tc Ribaute les Tavernes - As Salindres</h3>
               <p className="detail_p">Dispo : Sébastien</p>
-              
 
             </div>
           </div>
@@ -67,10 +74,9 @@ function Rencontres() {
             </div>
 
             <div className="details">
-                <div className="date">17/10/2021</div>
+              <div className="date">17/10/2021</div>
               <h3> La Calmette - As Salindres</h3>
               <p className="detail_p">Dispo : Thierry - Sébastien</p>
-              
 
             </div>
           </div>
@@ -80,15 +86,16 @@ function Rencontres() {
             </div>
 
             <div className="details">
-                <div className="date">24/10/2021</div>
+              <div className="date">24/10/2021</div>
               <h3> As Salindres - Bessèges</h3>
               <p className="detail_p">Dispo : Thierry - Sébastien</p>
-              
+
             </div>
           </div>
-          <a href="sms://+622997083?body=I%27m%20interested%20in%20your%20product.%20Please%20contact%20me.">Send a SMS message</a>
-          
 
+        </div>
+        <div className="linkcontainer">
+          <a className="link" href="sms://+622997083?body=Je%20ne%20suis%20pas%20dispo%20Contactes%20moi">Un souci ? Envois un sms au capitaine</a>
         </div>
 
       </section>
